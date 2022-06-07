@@ -1,0 +1,147 @@
+@use './variables' as *;
+@use './function' as *;
+@use './breakpoint' as *;
+ 
+.review {
+    height: 750px;
+    margin-bottom: 300px;
+
+    &-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $bg-color-5;
+    }
+
+    &-header {
+        max-width: 495px;
+        text-align: center;
+        margin-bottom: 70px;
+    }
+
+    &-slider {
+        height: 520px;
+        width: 630px;
+        position: relative;
+    }
+
+    &-slide {
+        padding-top: 20px;
+        height: 100%;
+        width: 100%;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        right: 100%;
+        opacity: 0;
+        overflow: hidden;
+        transition: all .5s linear;
+
+        &.active {
+            right: -50%;
+            transform: translateX(-50%);
+            opacity: 1;
+        }
+
+        &__quote {
+            margin-bottom: 50px;
+        }
+
+        &__desc {
+            font-size: 3rem;
+            color: $txt-color-3;
+            line-height: lineHeight(30px, 48px);
+            text-align: center;
+            margin-bottom: 45px;
+
+            span {
+                font-weight: 700;
+            }
+        }
+
+        &-author {
+            margin-bottom: 70px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &__avatar {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                background-color: #b5b6b8;
+                margin-bottom: 30px;
+            }
+
+            &__name {
+                font-family: $secondary-font;
+                text-transform: capitalize;
+            }
+        }
+    }
+}
+
+// Responsive
+
+@include tablet-screen {
+    .review {
+        margin-bottom: 150px;
+        &-slide {
+            max-width: 500px;
+
+            &__desc {
+                font-size: 2.5rem;
+            }
+        }
+    }
+}
+
+@include mobile-screen {
+    .review {
+        &-slider {
+            width: 100%;
+            height: 420px;
+            position: relative;
+        }
+        &-slide {   
+            &__quote {
+                margin-bottom: 40px;
+            }
+
+            &__desc {
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+@include small-mobile-screen {
+    .review {
+        &-slide {   
+            &__quote {
+                margin-bottom: 30px;
+            }
+
+            &__desc {
+                font-size: 1.7rem;
+                margin-bottom: 20px;
+            }
+
+            &-author {
+                &__avatar {
+                    width: 50px;
+                    height: 50px;
+                    margin-bottom: 20px;
+                }
+    
+                &__name {
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+}
+

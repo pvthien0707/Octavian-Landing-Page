@@ -1,0 +1,104 @@
+@use './variables' as *;
+@use './function' as *;
+@use './breakpoint' as *;
+
+.hero {
+    padding: 270px 0 420px;
+    color: $txt-color-2;
+
+    &__heading {
+        font-size: 12rem;
+        font-weight: 800;
+        font-family: $secondary-font;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+    }
+
+    &__caption {
+        font-size: 4rem;
+        font-weight: 600;
+        font-family: $secondary-font;
+        margin-bottom: 70px;
+
+        span {
+            text-transform: capitalize;
+        }
+    }
+
+    &__video {
+        display: flex;
+        align-items: center;
+        gap: 0 30px;
+        text-transform: capitalize;
+        font-weight: 600;
+
+        span {
+            span {
+                margin: 0 10px;
+            }
+        }
+    }
+}
+
+// Responsive
+
+@include small-pc-screen {
+    .hero {
+        // padding: 150px 0 200px;
+    }
+}
+
+@include tablet-screen {
+    .hero {
+        padding-top: 80px;
+
+        &__heading {
+            font-size: 8rem;
+            margin-bottom: 10px;
+        }
+
+        &__caption {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+
+@include mobile-screen {
+    .hero {
+
+        padding: 50px 0 50px;
+
+        &__heading {
+            font-size: 5rem;
+        }
+
+        &__caption {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        &__video {
+            font-size: 1.4rem;
+
+            img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    }
+}
+
+@include small-mobile-screen {
+    .hero {
+        padding-top: 40px;
+
+        &__heading {
+            font-size: 5rem;
+        }
+        &__caption {
+            font-size: 2rem;
+        }
+    }
+}

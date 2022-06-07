@@ -1,0 +1,17 @@
+@mixin maxWidth($width) {
+    @media screen and (max-width: $width) {
+        @content;
+    }
+}
+
+@mixin minWidth($width) {
+    @media screen and (min-width: $width) {
+        @content;
+    }
+}
+
+@mixin flex($alignItem, $justifyContent) {
+    display: flex;
+    align-items: $alignItem;
+    justify-content: $justifyContent;
+}

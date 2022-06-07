@@ -1,0 +1,186 @@
+@use './variables' as *;
+@use './mixin' as *;
+@use './function' as *;
+@use './breakpoint' as *;
+
+.footer {
+    background-color: $bg-color-3;
+    
+    &-top {
+        @include flex(flex-start, space-between);
+        gap: 130px;
+        padding: 445px 0 150px;
+
+        &-content {
+            &:first-child {
+                max-width: 370px;
+            }
+
+            &:nth-child(2) {
+                min-width: 170px;
+            }
+            
+            &:last-child {
+                // max-width: 370px;
+                flex-shrink: 1;
+            }
+    
+            &__logo {
+                margin-bottom: 55px;
+            }
+    
+            &__desc {
+                font-size: 1.6rem;
+                line-height: lineHeight(16px, 30px);
+                margin-bottom: 40px;
+            }
+        }
+
+        &-title {
+            font-size: 1.8rem;
+            color: $txt-color-2;
+            font-weight: 700;
+            text-transform: capitalize;
+            margin-bottom: 40px;
+        }
+    
+        &-social {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+    
+            &__icon {
+                color: $txt-color-2;
+    
+                &:hover {
+                    opacity: .5;
+                }
+            }
+        }
+    
+        &-list {
+            list-style: none;
+            line-height: lineHeight(16px, 30px);
+    
+            &__item {
+                margin-bottom: 25px;
+                
+                a {
+                    color: $txt-color;
+                    font-size: 1.6rem;
+                    text-transform: capitalize;
+    
+                    span {
+                        text-transform: none;
+                    }
+                }
+            }
+        }
+
+        &-contact {
+            font-size: 1.6rem;
+            ul {
+                margin-bottom: 35px;
+                line-height: lineHeight(16px, 30px);
+
+                li{
+                    &:first-child  {
+                        margin-bottom: 5px;
+                    }
+
+                    span {
+                        color: $txt-color-2;
+                    }
+                }
+
+            }
+
+            p {
+                line-height: lineHeight(16px, 30px);
+            }
+        }
+    }
+
+    &-bottom {
+        background-color: $bg-color-4;
+        font-size: 1.6rem;
+        line-height: lineHeight(22px, 35px);
+
+        &-container {
+            padding: 60px 0;
+            position: relative;
+        }
+
+        span {
+            color: $txt-color-2;
+        }
+
+        &__rocket {
+            width: 65px;
+            height: 65px;
+            background-image: linear-gradient(to bottom, $secondary-color, $primary-color);
+            border-radius: 5px;
+            color: $txt-color-2;
+            @include flex(center, center);
+            position: absolute;
+            right: 0;
+            top: 0;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+// Responsive
+
+@include tablet-screen {
+    .footer {
+        &-top {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-areas: 
+            "item1 item2"
+            "item3 item3"
+            ;
+            gap: 70px;
+            padding: 345px 0 100px;
+
+            &-content:first-child {
+                grid-area: item1;
+            }
+
+            &-content:nth-child(2) {
+                grid-area: item2;
+            }
+
+            &-content:last-child {
+                grid-area: item3;
+            }
+        }
+    }
+}
+
+@include mobile-screen {
+    .footer {
+        &-top {
+            grid-template-areas: 
+            "item1 item1"
+            "item2 item2"
+            "item3 item3"
+            ;
+            gap: 50px;
+            padding: 245px 0 50px;
+        }
+
+        &-bottom {
+            &-container {
+                padding: 40px 0;
+            }
+
+            &__rocket {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    }
+}
+

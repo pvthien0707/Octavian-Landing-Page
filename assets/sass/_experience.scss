@@ -1,0 +1,83 @@
+@use './mixin' as *;
+@use './breakpoint' as *;
+
+.experience {
+    margin-bottom: 200px;
+
+    &-container {
+        @include flex(center, space-between);
+    }
+
+    &-year {
+        font-size: 40rem;
+        font-weight: 700;
+        color: transparent;
+        padding: 0 102px;
+        position: relative;
+        z-index: 1;
+
+        span {
+            position: relative;
+            z-index: 1;
+            background: url("../img/year-bg.png") no-repeat 65% 45%;
+            -webkit-background-clip: text;
+            background-clip: text; 
+        }
+
+        &__dots {
+            position: absolute;
+            right: 0;
+            top: 50%;
+        }
+    }
+
+    &__content {
+        max-width: 470px;
+    }
+}
+
+@include tablet-screen {
+    .experience {
+        margin-bottom: 150px;
+
+        &-container {
+            flex-direction: column-reverse;
+            gap: 50px;
+        }
+
+        &-year {
+            font-size: 30rem;
+
+            &__dots {
+                width: 40%;
+            }
+        }
+
+        &__content {
+            max-width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+@include mobile-screen {
+    .experience {
+        &-container {
+            gap: 30px;
+        }
+
+        &-year {
+            font-size: 20rem;
+
+            &__dots {
+                top: 45%;
+                right: 50px;
+            }
+        }
+
+        &__content {
+            max-width: 100%;
+            text-align: center;
+        }
+    }
+}

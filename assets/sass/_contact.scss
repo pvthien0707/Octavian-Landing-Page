@@ -1,0 +1,73 @@
+@use './variables' as *;
+@use './mixin' as *;
+@use './breakpoint' as *;
+
+.contact {
+    margin-bottom: -300px;
+
+   &-container {
+       max-height: 600px;
+       padding: 135px 0;
+       margin: 0 auto;
+       @include flex(center, center);
+       text-align: center;
+       background: $contact-bg-color-5 url(../img/contact-img-2.png) no-repeat center;
+       border-radius: 10px;
+       position: relative;
+   }
+
+   &-bg {
+       position: absolute;
+       right: 0;
+       bottom: 0;
+       left: 0;
+   }
+
+   &-liquid {
+       position: absolute;
+       top: 50%;
+       transform: translateY(-50%);
+       right: 100px;
+   }
+
+    &-content {
+        margin: 0 auto;
+        max-width: 570px;   
+    }
+}
+
+// Responsive
+
+@include tablet-screen {
+    .contact {
+        margin-bottom: -200px;
+
+        &-container {
+            width: 90%;
+            padding: 50px 0;
+        }
+
+        &-liquid {
+            width: 70px;  
+            right: 10px;
+        }
+
+        &-content {
+            max-width: 400px;   
+        }
+    }
+}
+
+@include tablet-screen {
+    .contact {
+        &-liquid {
+            width: 70px;  
+            top: 0;
+            transform: translateY(50%);
+        }
+
+        &-content {
+            max-width: 400px;   
+        }
+    }
+}

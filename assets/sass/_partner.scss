@@ -1,0 +1,88 @@
+@use './variables' as *;
+@use './breakpoint' as *;
+
+.partner {
+    margin-bottom: 200px;
+    
+    &-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    span {
+        margin-bottom: 100px;
+    }
+
+    &-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 30px;
+
+        &__item {
+            width: 270px;
+            height: 180px;
+            background-color: $bg-color-2;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+                opacity: .5;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+// responsive
+
+@include tablet-screen  {
+    .partner {
+        margin-bottom: 100px;
+
+        span {
+            margin-bottom: 70px;
+        }
+
+        &-list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@include mobile-screen  {
+    .partner {
+        span {
+            margin-bottom: 50px;
+        }
+
+        &-list {
+            gap: 20px;
+            &__item {
+                width: 170px;
+                height: 170px;
+
+                img {
+                    width: 80%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}
+
+@include small-mobile-screen  {
+    .partner {
+        &-list {
+            gap: 20px;
+
+            &__item {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    }
+}
